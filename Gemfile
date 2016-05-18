@@ -22,6 +22,8 @@ gem 'bootstrap-sass'
 gem 'figaro'
 gem 'pry'
 gem 'devise'
+# For user role authorization
+gem 'pundit'
 
 group :development, :test do
   gem 'byebug'
