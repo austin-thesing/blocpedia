@@ -19,11 +19,15 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass'
+# For hiding enviroment variables from GitHub & Neirdowells 
 gem 'figaro'
 gem 'pry'
+# For user accounts and session management
 gem 'devise'
 # For user role authorization
 gem 'pundit'
+# For charging users for premium accounts
+gem 'stripe'
 
 group :development, :test do
   gem 'byebug'
