@@ -2,11 +2,11 @@ class ChargesController < ApplicationController
   @amount = 15_00
 
   def new
-    # @stripe_btn_data = {
-    #   key: "#{ Rails.configuration.stripe[:publishable_key] }",
-    #   description: "BigMoney Membership - #{current_user.name}",
-    #   amount: @amount
-    #  }
+    @stripe_btn_data = {
+      key: "#{ Rails.configuration.stripe[:publishable_key] }",
+      description: "Blocpedia Premium Membership - #{current_user.user_name}",
+      amount: @amount
+     }
   end
 
   def create
@@ -28,7 +28,7 @@ class ChargesController < ApplicationController
     )
 
     # Upgrades the current_user to Premium
-    current_user.Premium!
+    current_user.premium!
 
     flash[:notice] = "Thanks for all the money, #{current_user.user_name}! Feel free to pay me again."
     redirect_to user_path(current_user) # does't matter where we redirect this
