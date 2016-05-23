@@ -30,7 +30,7 @@ class ChargesController < ApplicationController
     # Upgrades the current_user to Premium
     current_user.premium!
 
-    flash[:notice] = "Thanks for all the money, #{current_user.user_name}! Feel free to pay me again."
+    flash[:notice] = "Thanks for supporting Blocpedia, #{current_user.user_name}! Your account has been upgraded to Premium. If you have any questions please email admin@designxdevelop.com."
     redirect_to user_path(current_user) # does't matter where we redirect this
 
   rescue Stripe::CardError => e
