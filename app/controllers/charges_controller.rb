@@ -40,9 +40,8 @@ class ChargesController < ApplicationController
   end
 
   def downgrade
-    # @user_wikis = current_user.Wiki.all
-    # @user_wikis.private(0)
     current_user.standard!
+    #current_user.wikis.private = false
     redirect_to wikis_path # eventually redirect back to User Profile (TBAL)
     flash[:notice] = "Your account has been downgraded back to a Standard Account. All previously private wikis are now public."
   end
