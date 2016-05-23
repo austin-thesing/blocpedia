@@ -1,0 +1,34 @@
+class ChargesController < ApplicationController
+  def new
+
+  end
+
+  def create
+    # The amount in pennies we will be charging the User
+    @amount = 15_00
+
+    # Creates a stripe Customer object to connect to the charge
+    customer = Stripe::Customer.create(
+      email: current_user.email,
+      card: params[:stripeToken]
+    )
+
+    # Where the actual stripe charge is happening
+    charge = Stripe::Charge.create(
+      customer: customer.id, # not the user_id this is a stripe specific customer id number
+      amount: @amount,
+      description: "Blocpedia Premium Account for: #{current_user.user_name}",
+      currency: 'usd'
+    )
+
+    # Upgrades the current_user to Premium
+    current_user.Premium!
+
+    flash[:notice] = "Thanks for all the money, #{current_user.user_name}! Feel free to pay me again."
+    redirect_to user_path(current_user) # does't matter where we redirect this
+
+  rescue Stripe::CardError => e
+    flash[:alert] = e.message
+    redirect_to new_charge_path
+  end
+end

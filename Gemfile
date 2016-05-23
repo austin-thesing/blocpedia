@@ -24,6 +24,8 @@ gem 'pry'
 gem 'devise'
 # For user role authorization
 gem 'pundit'
+# For processing user credit cards
+gem 'stripe'
 
 group :development, :test do
   gem 'byebug'
