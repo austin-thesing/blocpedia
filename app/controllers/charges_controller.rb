@@ -42,6 +42,8 @@ class ChargesController < ApplicationController
   def downgrade
     current_user.standard!
     #current_user.wikis.private = false
+    #@downgrade_wikis = Wiki.current_user.all
+    # ^^^ I don't think these work because my charges controller won't have access to the Wiki's methods...
     redirect_to wikis_path # eventually redirect back to User Profile (TBAL)
     flash[:notice] = "Your account has been downgraded back to a Standard Account. All previously private wikis are now public."
   end
