@@ -8,14 +8,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%# any embedded code with display_ is a HELPER in application_helper.rb  %>
   <nav class="navbar navbar-default">
     <div class="container"><%# using this to set a container in the nav bar %>
       <%= link_to   'Blocpedia',  root_path, :class => 'navbar-brand' %>
       <div class="pull-right">
         <% if user_signed_in? %>
           <div class="user-nav-links">
-              Hello, <%= current_user.email %><br>
+              Hello, <%= display_username %><br>
               <%= link_to 'Edit Profile', edit_user_registration_path, :class => 'navbar-link'%> | <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, :class => 'navbar-link' %>
+              | User Type: <%= display_user_role %>
           </div>
         <% else %>
           <div class="guest-nav-links">
