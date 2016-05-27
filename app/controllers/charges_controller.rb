@@ -41,6 +41,7 @@ class ChargesController < ApplicationController
 
   def downgrade
     current_user.standard!
+    current_user.wikis.update_all(private: false)
     #current_user.wikis.private = false
     #@downgrade_wikis = Wiki.current_user.all
     # ^^^ I don't think these work because my charges controller won't have access to the Wiki's methods...
