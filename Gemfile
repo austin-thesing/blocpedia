@@ -26,6 +26,8 @@ gem 'devise'
 gem 'pundit'
 # For processing user credit cards
 gem 'stripe'
+# For parsing and accepting Markdown text
+gem 'redcarpet'
 
 group :development, :test do
   gem 'byebug'

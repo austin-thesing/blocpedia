@@ -7,7 +7,8 @@
 
 <p>
   <strong>Body:</strong>
-  <%= @wiki.body %>
+  <%= markdown(@wiki.body) %>
+  <%# markdown method is configured in the application_helper.rb  %>
 </p>
 
 <p>
