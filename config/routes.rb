@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+
   resources :charges, only: [:new, :create]
   get 'charges/downgrade' => 'charges#downgrade' # Downgrade Accounts Path
-  resources :wikis
+  resources :wikis do
+    # Nested inside wikis because we need a wiki_id to be able to add collabs properly
+    resources :collaborators, only: [:index, :destroy, :create]
+  end
   devise_for :users
   root 'wikis#index'
 
