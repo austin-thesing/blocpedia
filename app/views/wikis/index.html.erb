@@ -5,6 +5,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Title</th>
       <th>Body</th>
       <th>Private</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @wikis.each do |wiki| %>
       <tr>
+        <td><strong><%= wiki.id %></strong></td>
         <td><%= wiki.title %></td>
         <td><%= wiki.body.truncate_words(25) { link_to "Read More", wiki } %></td>
         <td><%= wiki.private %></td>
