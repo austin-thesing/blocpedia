@@ -2,7 +2,10 @@
 
 <%= render 'form' %>
 <br>
-<%= link_to "Manage collaborators", wiki_collaborators_path(@wiki), class: "btn btn-info" %>
+
+<% if @wiki.user == current_user || current_user.admin? %>
+  <%= link_to "Manage collaborators", wiki_collaborators_path(@wiki), class: "btn btn-info" %>
+<% end %>
 
 <%= link_to 'Show', @wiki %> |
 <%= link_to 'Back', wikis_path %>
