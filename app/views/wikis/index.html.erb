@@ -17,7 +17,7 @@
     <% @wikis.each do |wiki| %>
       <tr>
         <td><%= wiki.title %></td>
-        <td><%= wiki.body %></td>
+        <td><%= wiki.body.truncate_words(25) { link_to "Read More", wiki } %></td>
         <td><%= wiki.private %></td>
         <td><%= wiki.user.email %></td>
         <td><%= link_to 'Show', wiki %></td>

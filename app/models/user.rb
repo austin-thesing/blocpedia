@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   enum role: [:standard, :premium, :admin]
 
   has_many :wikis
+  has_many :collaborators
 end
