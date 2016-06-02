@@ -9,9 +9,9 @@ class CollaboratorsController < ApplicationController
     @collaborator = @wiki.collaborators.new(user_id: params[:user_id])
 
     if @collaborator.save
-      # flash success
+      flash[:alert] = "Collaborator added Successfully to #{@wiki.title}"
     else
-      # flash oops
+      flash[:notice] = "Oops... The collaborator could not be added. Please try again!"
     end
 
     redirect_to wiki_collaborators_path(@wiki)
@@ -21,7 +21,7 @@ class CollaboratorsController < ApplicationController
     @collaborator = Collaborator.find(params[:id])
 
     if @collaborator.destroy
-      # flash success
+      flash[:alert] = "Collaborator has been removed."
     else
       # flash oops
     end
