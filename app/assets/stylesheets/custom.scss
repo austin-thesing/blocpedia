@@ -1,23 +1,21 @@
-// /* Coolors Exported Palette - coolors.co/02111b-30292f-5d737e-c3c3c3-fcfcfc */
-// $black: #02111b; //rgba(2, 17, 27, 100)
-// $brown: #30292f; //rgba(48, 41, 47, 100)
-// $blue-grey: #5d737e; //rgba(93, 115, 126, 100)
-// $tan: #c3c3c3; //rgba(195, 195, 195, 100)
-// $off-white: #fcfcfc; //rgba(252, 252, 252, 100)
-// $page-bg: #e3e3e3;
-
 /* Coolors Exported Palette - coolors.co/3a3335-44ffd2-87f6ff-fdf0d5-c6d8d3 */
 $brown: #3a3335;
 $black: #02111b;
+$gray: #34393d;
 $off-white: #fcfcfc;
-$btn-green: #5ba56d;
 $page-bg: #e0d4ba;
 $wiki-bg: #c6d8d3;
+$btn-green: #5ba56d;
 
 /* Wiki Status Colors */
 $private: #8c2c2c;
 $public: #5ba56d;
 $collab: #2a539e;
+
+/* User Role Colors */
+$standard: #5ba56d;
+$premium: #b7a542;
+$admin: #8c2c2c;
 
 /* Font Family Declaration */
 $heading-font: 'PT Sans', sans-serif;
@@ -32,10 +30,16 @@ nav {
   background-color: $off-white !important;
 }
 
-nav .logo {
-  font-family: $heading-font;
-  font-size: 22px !important;
-  font-weight: 700;
+nav {
+  .logo {
+    font-family: $heading-font;
+    font-size: 22px !important;
+    font-weight: 700;
+    color: $black !important;
+  }
+  .logo:hover {
+    color: $gray !important;
+  }
 }
 
 .user-nav-links {
@@ -75,7 +79,7 @@ nav .logo {
       color: $black;
     }
     a:hover {
-      color: $brown;
+      color: $gray;
       text-decoration: none;
     }
   }
