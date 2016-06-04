@@ -1,7 +1,9 @@
 <% @wikis.each do |wiki| %>
   <div class="wiki-container" id="wiki-<%= wiki.id %>">
     <h1 class="wiki-title media media-heading">
+      <%= link_to(wiki) do %>
       <%= wiki.title %>
+      <% end %>
     </h1>
     <p class="wiki-body media">
       <%= wiki.body.truncate_words(70) %>
@@ -24,8 +26,9 @@
       <div class="wiki-published">
         Published: <%= time_ago_in_words(wiki.created_at) %> ago
       </div>
+      <em>by</em>
       <div class="wiki-user">
-        User: <%= wiki.user.email %>
+         <%= wiki.user.email %>
       </div>
     </div>
 
@@ -39,7 +42,9 @@
       </div>
 
       <div class="wiki-delete">
+        <%# if wiki.user == current_user || user.admin? %> <%# Why does this not work?%>
         <%= link_to 'Delete', wiki, class: 'btn btn-default', method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%# end %>
       </div>
 
     </div>

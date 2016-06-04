@@ -4,6 +4,7 @@ $brown: #30292f; //rgba(48, 41, 47, 100)
 $blue-grey: #5d737e; //rgba(93, 115, 126, 100)
 $tan: #c3c3c3; //rgba(195, 195, 195, 100)
 $off-white: #fcfcfc; //rgba(252, 252, 252, 100)
+$page-bg: #e3e3e3;
 
 /* Wiki Status Colors */
 $private: red;
@@ -13,6 +14,10 @@ $collab: blue;
 /* Font Family Declaration */
 $heading-font: 'PT Sans', sans-serif;
 $body-font: 'Cabin', sans-serif;
+
+body {
+  background-color: $page-bg !important;
+}
 
 /* ----------------- NavBar -------------------------- */
 nav .logo {
@@ -37,6 +42,7 @@ nav .logo {
 /* ----------------- Page Heading -------------------------- */
 .page-heading {
   margin-top: 7%; // pushes page content down below the fixed header
+  color: $black;
   h1 {
     font-family: $heading-font;
     font-weight: 700;
@@ -49,12 +55,25 @@ nav .logo {
   margin-bottom: 25px;
   padding: 20px;
   background-color: $tan;
+  border: 2px solid $off-white;
   h1.wiki-title {
     font-family: $heading-font;
+    a {
+      color: $black;
+    }
+    a:hover {
+      color: $brown;
+      text-decoration: none;
+    }
   }
   p.wiki-body {
     font-family: $body-font;
     font-weight: 400;
+  }
+  .wiki-info {
+    div {
+      display: inline-block;
+    }
   }
   .wiki-status {
     font-weight: 600;
