@@ -4,20 +4,18 @@
       <%= wiki.title %>
     </h1>
     <p class="wiki-body media">
-      <%= wiki.body.truncate_words(20) %>
+      <%= wiki.body.truncate_words(70) %>
     </p>
 
     <div class="wiki-status">
-      <div class="wiki-private">
         <% if wiki.private? %>
-          Private Wiki
+          <span class="wiki-private">Private Wiki</span>
         <% else %>
-          Public Wiki
+          <span class="wiki-public">Public Wiki</span>
         <% end %>
-      </div>
       <div class="wiki-collaborator">
         <% if wiki.users.include?(current_user) %>
-          Collaborator
+          <span class="wiki-collab">Collaborator</span>
         <% end %>
       </div>
     </div>
@@ -33,15 +31,15 @@
 
     <div class="wiki-buttons">
       <div class="wiki-view">
-        <%= link_to 'Show', wiki %>
+        <%= link_to 'Show', wiki, class: 'btn btn-default' %>
       </div>
 
       <div class="wiki-edit">
-        <%= link_to 'Edit', edit_wiki_path(wiki) %>
+        <%= link_to 'Edit', edit_wiki_path(wiki), class: 'btn btn-default' %>
       </div>
 
       <div class="wiki-delete">
-        <%= link_to 'Delete', wiki, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Delete', wiki, class: 'btn btn-default', method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
 
     </div>
