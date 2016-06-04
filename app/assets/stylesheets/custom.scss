@@ -1,10 +1,17 @@
 /* Coolors Exported Palette - coolors.co/02111b-30292f-5d737e-c3c3c3-fcfcfc */
-
 $black: #02111b; //rgba(2, 17, 27, 100)
 $brown: #30292f; //rgba(48, 41, 47, 100)
 $blue-grey: #5d737e; //rgba(93, 115, 126, 100)
 $tan: #c3c3c3; //rgba(195, 195, 195, 100)
 $off-white: #fcfcfc; //rgba(252, 252, 252, 100)
+
+/* Wiki Status Colors */
+$private: red;
+$public: green;
+
+/* Font Family Declaration */
+$heading-font: 'PT Sans', sans-serif;
+$body-font: 'Cabin', sans-serif;
 
 .user-nav-links {
   margin-top: 3.5px;
@@ -19,13 +26,21 @@ $off-white: #fcfcfc; //rgba(252, 252, 252, 100)
   margin-bottom: 25px;
   padding: 20px;
   background-color: $tan;
+  h1.wiki-title {
+    font-family: $heading-font;
+  }
+  p.wiki-body {
+    font-family: $body-font;
+    font-weight: 400;
+  }
   .wiki-status {
     font-weight: 600;
+    font-family: $heading-font;
     .wiki-private {
-      color: red;
+      color: $private;
     }
     .wiki-collaborator {
-      color: green;
+      color: $public;
     }
   }
 }
