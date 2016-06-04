@@ -21,6 +21,7 @@ $body-font: 'Cabin', sans-serif;
   margin-top: 15px;
 }
 
+/* ------------------ .wiki-container styling --------------- */
 .wiki-container {
   margin-top: 25px;
   margin-bottom: 25px;
@@ -41,6 +42,12 @@ $body-font: 'Cabin', sans-serif;
     }
     .wiki-collaborator {
       color: $public;
+    }
+  }
+  .wiki-buttons {
+    div {
+      display: inline-block;
+      margin-right: 10px;
     }
   }
 }

@@ -1,0 +1,49 @@
+<% @wikis.each do |wiki| %>
+  <div class="wiki-container" id="wiki-<%= wiki.id %>">
+    <h1 class="wiki-title media media-heading">
+      <%= wiki.title %>
+    </h1>
+    <p class="wiki-body media">
+      <%= wiki.body.truncate_words(20) %>
+    </p>
+
+    <div class="wiki-status">
+      <div class="wiki-private">
+        <% if wiki.private? %>
+          Private Wiki
+        <% else %>
+          Public Wiki
+        <% end %>
+      </div>
+      <div class="wiki-collaborator">
+        <% if wiki.users.include?(current_user) %>
+          Collaborator
+        <% end %>
+      </div>
+    </div>
+
+    <div class="wiki-info">
+      <div class="wiki-published">
+        Published: <%= time_ago_in_words(wiki.created_at) %> ago
+      </div>
+      <div class="wiki-user">
+        User: <%= wiki.user.email %>
+      </div>
+    </div>
+
+    <div class="wiki-buttons">
+      <div class="wiki-view">
+        <%= link_to 'Show', wiki %>
+      </div>
+
+      <div class="wiki-edit">
+        <%= link_to 'Edit', edit_wiki_path(wiki) %>
+      </div>
+
+      <div class="wiki-delete">
+        <%= link_to 'Delete', wiki, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+
+    </div>
+  </div>
+<% end  %>
