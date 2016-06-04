@@ -2,34 +2,55 @@
 
 <h1 class="media media-heading">All Wikis</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Private</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= link_to 'New Wiki', new_wiki_path, class: 'btn btn-default' %>
 
-  <tbody>
-    <% @wikis.each do |wiki| %>
-      <tr>
-        <td><strong><%= wiki.id %></strong></td>
-        <td><%= wiki.title %></td>
-        <td><%= wiki.body.truncate_words(25) { link_to "Read More", wiki } %></td>
-        <td><%= wiki.private %></td>
-        <td><%= wiki.user.email %></td>
-        <td><%= link_to 'Show', wiki %></td>
-        <td><%= link_to 'Edit', edit_wiki_path(wiki) %></td>
-        <td><%= link_to 'Destroy', wiki, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @wikis.each do |wiki| %>
+  <div class="wiki-container" id="wiki-<%= wiki.id %>">
+    <h1 class="wiki-title media media-heading">
+      <%= wiki.title %>
+    </h1>
+    <p class="wiki-body media">
+      <%= wiki.body.truncate_words(20) %>
+    </p>
 
-<br>
+    <div class="wiki-status">
+      <div class="wiki-private">
+        <% if wiki.private? %>
+          Private Wiki
+        <% else %>
+          Public Wiki
+        <% end %>
+      </div>
+      <div class="wiki-collaborator">
+        <% if wiki.users.include?(current_user) %>
+          Collaborator
+        <% end %>
+      </div>
+    </div>
 
-<%= link_to 'New Wiki', new_wiki_path, :class => 'btn btn-default' %>
+    <div class="wiki-info">
+      <div class="wiki-published">
+        Published: <%= time_ago_in_words(wiki.created_at) %> ago
+      </div>
+      <div class="wiki-user">
+        User: <%= wiki.user.email %>
+      </div>
+    </div>
+
+    <div class="wiki-buttons">
+      <div class="wiki-view">
+        <%= link_to 'Show', wiki %>
+      </div>
+
+      <div class="wiki-edit">
+        <%= link_to 'Edit', edit_wiki_path(wiki) %>
+      </div>
+
+      <div class="wiki-delete">
+        <%= link_to 'Delete', wiki, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+
+    </div>
+  </div>
+
+<% end %>

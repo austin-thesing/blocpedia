@@ -3,8 +3,8 @@ class WikisController < ApplicationController
 
   # GET /wikis
   def index
-    #@wikis = Wiki.all
     @wikis = policy_scope(Wiki)
+    #@wikis = policy_scope(Wiki.order(created_at: :desc)) #Orders Wiki's on Index View by Ascending Order or Newest First
   end
 
   # GET /wikis/1
