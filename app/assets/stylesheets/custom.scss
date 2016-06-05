@@ -1,3 +1,47 @@
+/* Coolors Exported Palette - coolors.co/3a3335-44ffd2-87f6ff-fdf0d5-c6d8d3 */
+$brown: #3a3335;
+$black: #02111b;
+$gray: #34393d;
+$off-white: #fcfcfc;
+$page-bg: #e0d4ba;
+$wiki-bg: #c6d8d3;
+$btn-green: #5ba56d;
+
+/* Wiki Status Colors */
+$private: #8c2c2c;
+$public: #5ba56d;
+$collab: #2a539e;
+
+/* User Role Colors */
+$standard: #5ba56d;
+$premium: #b7a542;
+$admin: #8c2c2c;
+
+/* Font Family Declaration */
+$heading-font: 'PT Sans', sans-serif;
+$body-font: 'Cabin', sans-serif;
+
+body {
+  background-color: $page-bg !important;
+}
+
+/* ----------------- NavBar -------------------------- */
+nav {
+  background-color: $off-white !important;
+}
+
+nav {
+  .logo {
+    font-family: $heading-font;
+    font-size: 22px !important;
+    font-weight: 700;
+    color: $black !important;
+  }
+  .logo:hover {
+    color: $gray !important;
+  }
+}
+
 .user-nav-links {
   margin-top: 3.5px;
 }
@@ -5,3 +49,81 @@
 .guest-nav-links {
   margin-top: 15px;
 }
+
+/* -------- Btn Styling -------- */
+.btn {
+  font-family: $heading-font;
+}
+
+/* ----------------- Page Heading -------------------------- */
+.page-heading {
+  margin-top: 7%; // pushes page content down below the fixed header
+  color: $black;
+  h1 {
+    font-family: $heading-font;
+    font-weight: 700;
+  }
+}
+
+/* ------------------ .wiki-container styling --------------- */
+.wiki-container {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 20px;
+  background-color: $wiki-bg;
+  border: 2.5px solid $off-white;
+  h1.wiki-title {
+    font-family: $heading-font;
+    font-weight: 700;
+    a {
+      color: $black;
+    }
+    a:hover {
+      color: $gray;
+      text-decoration: none;
+    }
+  }
+  p.wiki-body {
+    font-family: $body-font;
+    font-weight: 400;
+  }
+  .wiki-info {
+    div {
+      display: inline-block;
+    }
+  }
+  .wiki-status {
+    font-weight: 600;
+    font-family: $heading-font;
+    .wiki-private {
+      color: $private;
+    }
+    .wiki-public {
+      color: $public;
+    }
+    .wiki-collaborator {
+      color: $collab;
+    }
+  }
+  .wiki-buttons {
+    margin-top: 15px;
+    div {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    a.btn {
+      background-color: $off-white !important;
+    }
+  }
+}
+
+/* -------- Button Styling -------- */
+.btn-success {
+  background-color: $btn-green !important;
+}
+
+.btn {
+  font-family: $heading-font !important;
+}
+
+/* -------- Footer Styling -------- */

@@ -1,6 +1,13 @@
 module ApplicationHelper
 # User Information Helpers
   def display_user_role
+    # if current_user.role == 'standard'
+    #   # span with standard class
+    # else current_user.role == 'premium'
+    #   # span with premium class
+    # elsif current_user.role == 'admin'
+    #   # span with admin class
+    # end
     current_user.role.capitalize
   end
 

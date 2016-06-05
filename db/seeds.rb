@@ -21,7 +21,7 @@ end
 50.times do
   Wiki.create!(
   title: Faker::Hipster.sentence(3, false, 4),
-  body: Faker::Hipster.paragraph(2),
+  body: Faker::Hipster.paragraph(10),
   user: @users.sample
   )
 end

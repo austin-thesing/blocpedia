@@ -1,0 +1,52 @@
+<% @wikis.each do |wiki| %>
+  <div class="wiki-container" id="wiki-<%= wiki.id %>">
+    <h1 class="wiki-title media media-heading">
+      <%= link_to(wiki) do %>
+      <%= wiki.title %>
+      <% end %>
+    </h1>
+    <p class="wiki-body media">
+      <%= wiki.body.truncate_words(70) %>
+    </p>
+
+    <div class="wiki-status">
+        <% if wiki.private? %>
+          <span class="wiki-private">Private Wiki</span>
+        <% else %>
+          <span class="wiki-public">Public Wiki</span>
+        <% end %>
+      <div class="wiki-collaborator">
+        <% if wiki.users.include?(current_user) %>
+          <span class="wiki-collab">Collaborator</span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="wiki-info">
+      <div class="wiki-published">
+        Published: <%= time_ago_in_words(wiki.created_at) %> ago
+      </div>
+      <em>by</em>
+      <div class="wiki-user">
+         <%= wiki.user.email %>
+      </div>
+    </div>
+
+    <div class="wiki-buttons">
+      <div class="wiki-view">
+        <%= link_to 'Show', wiki, class: 'btn btn-default' %>
+      </div>
+
+      <div class="wiki-edit">
+        <%= link_to 'Edit', edit_wiki_path(wiki), class: 'btn btn-default' %>
+      </div>
+
+      <div class="wiki-delete">
+        <%# if wiki.user == current_user || user.admin? %> <%# Why does this not work?%>
+        <%= link_to 'Delete', wiki, class: 'btn btn-default', method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%# end %>
+      </div>
+
+    </div>
+  </div>
+<% end  %>
