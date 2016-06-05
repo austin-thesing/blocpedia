@@ -44,10 +44,26 @@ nav {
 
 .user-nav-links {
   margin-top: 3.5px;
+  font-family: $heading-font;
+  a {
+    color: $black !important;
+    font-weight: 500;
+  }
+  a:hover {
+    text-decoration: none;
+    color: $gray !important;
+  }
 }
 
 .guest-nav-links {
   margin-top: 15px;
+  a {
+    color: $black !important;
+  }
+  a:hover {
+    color: $gray !important;
+    text-decoration: none;
+  }
 }
 
 /* -------- Btn Styling -------- */
@@ -57,7 +73,7 @@ nav {
 
 /* ----------------- Page Heading -------------------------- */
 .page-heading {
-  margin-top: 7%; // pushes page content down below the fixed header
+  // margin-top: 7%; // pushes page content down below the fixed header
   color: $black;
   h1 {
     font-family: $heading-font;
