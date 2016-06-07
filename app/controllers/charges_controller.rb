@@ -4,7 +4,7 @@ class ChargesController < ApplicationController
   def new
     @stripe_btn_data = {
       key: "#{ Rails.configuration.stripe[:publishable_key] }",
-      description: "Blocpedia Premium Membership - #{current_user.user_name}",
+      description: "Blocpedia Premium Membership - #{current_user.username}",
       amount: @amount
      }
   end
@@ -23,14 +23,14 @@ class ChargesController < ApplicationController
     charge = Stripe::Charge.create(
       customer: customer.id, # not the user_id this is a stripe specific customer id number
       amount: @amount,
-      description: "Blocpedia Premium Account for: #{current_user.user_name}",
+      description: "Blocpedia Premium Account for: #{current_user.username}",
       currency: 'usd'
     )
 
     # Upgrades the current_user to Premium
     current_user.premium!
 
-    flash[:notice] = "Thanks for supporting Blocpedia, #{current_user.user_name}! Your account has been upgraded to Premium. If you have any questions please email admin@designxdevelop.com."
+    flash[:notice] = "Thanks for supporting Blocpedia, #{current_user.username}! Your account has been upgraded to Premium. If you have any questions please email admin@designxdevelop.com."
     # does't matter where we redirect this -- Use the User Path
     redirect_to wikis_path  #user_path(current_user)
 

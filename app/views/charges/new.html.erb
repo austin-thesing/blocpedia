@@ -1,4 +1,13 @@
+<h1>Upgrade to Premium</h1>
+<h4>All this for only $15!</h4>
+<p>Premium Features</p>
+<ul>
+  <li>Private Wikis</li>
+  <li>Support the Developer</li>
+  <li>Access to Future Blocpedia Betas</li>
+  <li>Personal Thank you from The Developer (In your profile after upgrade)</li>
+</ul>
+<p>Thank you for supporting me on my journey to become a web developer. --Austin</p>
 <%= form_tag charges_path do %>
-   <h4>Sign up for a  Blocpedia Premium Account!</h4>
    <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="<%= @stripe_btn_data[:key] %>" data-amount="<%= @stripe_btn_data[:amount] %>" data-description="<%= @stripe_btn_data[:description] %>" ></script>
  <% end %>
