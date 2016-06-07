@@ -29,6 +29,10 @@ gem 'stripe'
 # For parsing and accepting Markdown text
 gem 'redcarpet'
 
+#error reporting
+gem 'rollbar'
+gem 'oj', '~> 2.12.14'
+
 group :development, :test do
   gem 'byebug'
   gem 'spring'
