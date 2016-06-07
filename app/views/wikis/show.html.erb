@@ -28,6 +28,7 @@
   <strong>Author:</strong>
   <%= @wiki.user.email %>
 </p>
-
+<% if @wiki.users.include?(current_user) || @wiki.user == current_user || current_user.admin? %>
 <%= link_to 'Edit', edit_wiki_path(@wiki), class: 'btn btn-default btn-sm' %> |
+<% end %>
 <%= link_to 'Back', wikis_path, class: 'btn btn-default btn-sm' %>
