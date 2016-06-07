@@ -16,15 +16,15 @@ module ApplicationHelper
   end
 
   def display_username
-    current_user.user_name
+    current_user.username
   end
 
-  def display_user_name
-    current_user.first_name + " " + current_user.last_name
+  def display_name
+    current_user.firstname + " " + current_user.lastname
   end
 
   def display_collaborator_name(user)
-    user.first_name + " " + user.last_name
+    user.firstname + " " + user.lastname
   end
 
   def markdown(text)
