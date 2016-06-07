@@ -6,7 +6,9 @@
       <% end %>
     </h1>
     <p class="wiki-body media">
+      <%= link_to(wiki) do %>
       <%= wiki.body.truncate_words(70) %>
+      <% end %>
     </p>
 
     <div class="wiki-status">
@@ -30,11 +32,15 @@
       <div class="wiki-user">
          <%= wiki.user.email %>
       </div>
+      <br>
+      <div class="wiki-updated">
+        Updated: <%= time_ago_in_words(wiki.updated_at) %> ago
+      </div>
     </div>
 
     <div class="wiki-buttons">
       <div class="wiki-view">
-        <%= link_to 'Show', wiki, class: 'btn btn-default' %>
+        <%= link_to 'Read', wiki, class: 'btn btn-default' %>
       </div>
 
       <div class="wiki-edit">

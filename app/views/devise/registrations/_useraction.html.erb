@@ -1,0 +1,16 @@
+<% if current_user.standard? %>
+
+  <div class="user-upgrade">
+    <h2>Upgrade Account</h2>
+    <%= link_to "I want to upgrade to Premium.", new_charge_path, :class => 'btn btn-success btn-sm' %>
+  </div>
+
+<% else current_user.premium? %>
+
+  <div class="user-downgrade">
+    <h2>Downgrade Account</h2>
+    Want to downgrade to standard? <%= link_to "Downgrade Account", charges_downgrade_path, :class => 'btn btn-warning btn-sm' %>
+    <p><em>Caution:</em> Your Private wikis will be made Public.</p>
+  </div>
+
+<% end %>

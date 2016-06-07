@@ -23,6 +23,7 @@ $body-font: 'Cabin', sans-serif;
 
 body {
   background-color: $page-bg !important;
+  font-family: $body-font !important;
 }
 
 /* ----------------- NavBar -------------------------- */
@@ -33,7 +34,7 @@ nav {
 nav {
   .logo {
     font-family: $heading-font;
-    font-size: 22px !important;
+    font-size: 24px !important;
     font-weight: 700;
     color: $black !important;
   }
@@ -64,11 +65,6 @@ nav {
     color: $gray !important;
     text-decoration: none;
   }
-}
-
-/* -------- Btn Styling -------- */
-.btn {
-  font-family: $heading-font;
 }
 
 /* ----------------- Page Heading -------------------------- */
@@ -102,6 +98,13 @@ nav {
   p.wiki-body {
     font-family: $body-font;
     font-weight: 400;
+    a {
+      color: $black;
+    }
+    a:hover {
+      color: $gray;
+      text-decoration: none;
+    }
   }
   .wiki-info {
     div {
@@ -111,6 +114,7 @@ nav {
   .wiki-status {
     font-weight: 600;
     font-family: $heading-font;
+    // border: 1px solid $off-white;
     .wiki-private {
       color: $private;
     }
@@ -140,6 +144,48 @@ nav {
 
 .btn {
   font-family: $heading-font !important;
+}
+
+.btn-info {
+  background-color: $collab !important;
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+.inline-form-actions {
+  div {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
+/* -------- Form Styling -------- */
+.form-control {
+  width: 45% !important;
+}
+
+.checkbox-fix {
+  margin-left: 20px !important;
+}
+
+label {
+  font-family: $heading-font !important;
+}
+
+/* -------- Individual Wiki Status Display -------- */
+.single-wiki-info {
+  font-weight: 500;
+  .private {
+    color: $private;
+  }
+  .public {
+    color: $public;
+  }
+  .collaborator {
+    color: $collab;
+  }
 }
 
 /* -------- Footer Styling -------- */

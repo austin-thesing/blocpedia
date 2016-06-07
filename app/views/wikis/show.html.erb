@@ -1,11 +1,7 @@
-<!-- <p id="notice"><%#= notice %></p> -->
-
-<div class="page-heading">
-  <div class="title">
-    <strong>Title:</strong>
-    <%= @wiki.title %>
-  </div>
-</div>
+<p class="title">
+  <strong>Title:</strong>
+  <%= @wiki.title %>
+</p>
 
 <p>
   <strong>Body:</strong>
@@ -14,14 +10,24 @@
 </p>
 
 <p>
-  <strong>Private:</strong>
-  <%= @wiki.private %>
+  <strong>Wiki Info:</strong>
+  <div class="single-wiki-info">
+    <% if @wiki.private? %>
+      <span class="private">Private Wiki</span>
+    <% else %>
+      <span class="public">Public Wiki</span>
+    <% end %>
+    <br>
+    <% if @wiki.users.include?(current_user) %>
+      <span class="collaborator">Collaborator</span>
+    <% end %>
+  </div>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Author:</strong>
   <%= @wiki.user.email %>
 </p>
 
-<%= link_to 'Edit', edit_wiki_path(@wiki) %> |
-<%= link_to 'Back', wikis_path %>
+<%= link_to 'Edit', edit_wiki_path(@wiki), class: 'btn btn-default btn-sm' %> |
+<%= link_to 'Back', wikis_path, class: 'btn btn-default btn-sm' %>

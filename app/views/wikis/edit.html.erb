@@ -5,9 +5,5 @@
 <%= render 'form' %>
 <br>
 
-<% if @wiki.user == current_user || current_user.admin? %>
-  <%= link_to "Manage collaborators", wiki_collaborators_path(@wiki), class: "btn btn-info" %>
-<% end %>
-
-<%= link_to 'Show', @wiki %> |
-<%= link_to 'Back', wikis_path %>
+<%= link_to 'Show', @wiki, class: 'btn btn-default btn-sm' %> |
+<%= link_to 'Back', wikis_path, class: 'btn btn-default btn-sm' %>

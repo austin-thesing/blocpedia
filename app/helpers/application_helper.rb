@@ -19,7 +19,7 @@ module ApplicationHelper
     current_user.username
   end
 
-  def display_user_name
+  def display_name
     current_user.firstname + " " + current_user.lastname
   end
 
