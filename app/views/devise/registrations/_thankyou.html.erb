@@ -1,7 +1,7 @@
 <p>
   <strong>Hi <em><%= display_name %></em>,</strong>
   <br><br>
-     By using Blocpedia you are supporting my dream of becoming a Full Stack Developer. I cannot thank you enough for taking the time to use an application that I personally developed and put hours into. <% if current_user.premium? %>As a premium member you have made a personal contribution towards my dream of being a Full Stack Web Developer. The money you paid for a premium account will be put towards resourcing me to learn more about Rails &amp; and other web development technologies. I want to build sites and apps that influence the world around us and make it a better place to live in.<% end %>
+     By using Blocpedia you are supporting my dream of becoming a Full Stack Developer. I cannot thank you enough for taking the time to use an application that I personally developed and put hours into. <% if current_user.premium? || current_user.admin? %>As a premium member you have made a personal contribution towards my dream of being a Full Stack Web Developer. The money you paid for a premium account will be put towards resourcing me to learn more about Rails &amp; and other web development technologies. I want to build sites and apps that influence the world around us and make it a better place to live in.<% end %>
   <br><br>
   <strong>Thank you,</strong>
   <br>
