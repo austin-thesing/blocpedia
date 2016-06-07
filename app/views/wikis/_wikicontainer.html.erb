@@ -42,16 +42,16 @@
       <div class="wiki-view">
         <%= link_to 'Read', wiki, class: 'btn btn-default' %>
       </div>
-
+      <% if wiki.users.include?(current_user) || current_user.admin? %>
       <div class="wiki-edit">
         <%= link_to 'Edit', edit_wiki_path(wiki), class: 'btn btn-default' %>
       </div>
-
+      <% end %>
+      <% if wiki.user == current_user || current_user.admin? %>
       <div class="wiki-delete">
-        <%# if wiki.user == current_user || user.admin? %> <%# Why does this not work?%>
         <%= link_to 'Delete', wiki, class: 'btn btn-default', method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%# end %>
       </div>
+      <% end %>
 
     </div>
   </div>
