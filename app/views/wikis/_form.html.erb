@@ -31,10 +31,5 @@
   <div class="actions">
     <%= f.submit class: 'btn btn-success' %>
   </div>
-  <div class="collaborator-btn">
-    <% if @wiki.user == current_user || current_user.admin? %>
-      <%= link_to "Manage collaborators", wiki_collaborators_path(@wiki), class: "btn btn-info btn-md" %>
-    <% end %>
-  </div>
 </div>
 <% end %>

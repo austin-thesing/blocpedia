@@ -4,4 +4,4 @@
 <%= link_to 'New Wiki', new_wiki_path, class: 'btn btn-success' %>
 
 <%# moved into a partial because it really cluttered the view %>
-<%= render partial: 'wikicontainer' %>
+<%= render @wikis %>

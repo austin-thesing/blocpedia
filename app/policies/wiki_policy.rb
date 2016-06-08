@@ -8,6 +8,13 @@ class WikiPolicy < ApplicationPolicy
   #     end
   #   end
   # end
+  def show?
+    !record.private? || (user.present? && (user.admin? || record.user == user || record.users.include?(user)))
+  end
+
+  def update?
+    user.present? && (!record.private? || user.admin? || record.user == user || record.users.include?(user)) # record = the object we are testing against
+  end
 
   class Scope
     attr_reader :user, :scope

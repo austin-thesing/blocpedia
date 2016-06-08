@@ -9,20 +9,24 @@ class WikisController < ApplicationController
 
   # GET /wikis/1
   def show
+    authorize @wiki
   end
 
   # GET /wikis/new
   def new
     @wiki = Wiki.new
+    authorize @wiki
   end
 
   # GET /wikis/1/edit
   def edit
+    authorize @wiki
   end
 
   # POST /wikis
   def create
     @wiki = current_user.wikis.new(wiki_params)
+    authorize @wiki
 
     if @wiki.save
       redirect_to @wiki , notice: 'Wiki was successfully created.'
@@ -33,6 +37,7 @@ class WikisController < ApplicationController
 
   # PATCH/PUT /wikis/1
   def update
+    authorize @wiki
     if @wiki.update(wiki_params)
       redirect_to @wiki, notice: 'Wiki was successfully updated.'
     else
@@ -42,6 +47,7 @@ class WikisController < ApplicationController
 
   # DELETE /wikis/1
   def destroy
+    authorize @wiki
     @wiki.destroy
     redirect_to wikis_url, notice: 'Wiki was successfully destroyed.'
   end

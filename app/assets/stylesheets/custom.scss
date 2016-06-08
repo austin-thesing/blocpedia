@@ -26,7 +26,21 @@ body {
   font-family: $body-font !important;
 }
 
+/* ----------------- Misc -------------------------- */
+
+.conf-rem {
+  color: $standard;
+  font-family: $heading-font;
+  font-size: 14px;
+  span {
+    color: $black;
+    font-family: $body-font;
+    font-size: 12px;
+  }
+}
+
 /* ----------------- NavBar -------------------------- */
+
 nav {
   background-color: $off-white !important;
 }
