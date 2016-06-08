@@ -15,7 +15,7 @@ class ApplicationPolicy
   end
 
   def create?
-    false
+    user.present?
   end
 
   def new?
@@ -31,8 +31,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
-    # user.admin? || wiki.user?
+    update?
   end
 
   def scope
