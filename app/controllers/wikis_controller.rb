@@ -7,9 +7,10 @@ class WikisController < ApplicationController
     #@wikis = policy_scope(Wiki.order(created_at: :desc)) #Orders Wiki's on Index View by Ascending Order or Newest First
   end
 
-  # GET /wikis/1
+  # GET /wikis/1 or /wikis/slug
   def show
     authorize @wiki
+    @wiki = Wiki.friendly.find(params[:id])
   end
 
   # GET /wikis/new
@@ -49,13 +50,13 @@ class WikisController < ApplicationController
   def destroy
     authorize @wiki
     @wiki.destroy
-    redirect_to wikis_url, notice: 'Wiki was successfully destroyed.'
+    redirect_to wikis_url, notice: 'Wiki was successfully deleted.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_wiki
-      @wiki = Wiki.find(params[:id])
+      @wiki = Wiki.friendly.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

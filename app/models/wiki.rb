@@ -7,4 +7,7 @@ class Wiki < ActiveRecord::Base
   def collaborator_for(user)
     collaborators.where(user_id: user.id).first
   end
+
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 end
