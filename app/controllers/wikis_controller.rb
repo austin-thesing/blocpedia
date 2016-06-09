@@ -40,6 +40,8 @@ class WikisController < ApplicationController
   def update
     authorize @wiki
     if @wiki.update(wiki_params)
+      @wiki.slug = nil
+      @wiki.save!
       redirect_to @wiki, notice: 'Wiki was successfully updated.'
     else
       render :edit
