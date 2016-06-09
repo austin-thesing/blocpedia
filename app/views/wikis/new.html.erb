@@ -3,3 +3,6 @@
 <%= render 'form' %>
 <br>
 <%= link_to 'Back', wikis_path, class: 'btn btn-default btn-sm' %>
+<script src="../../epiceditor/js/epiceditor.min.js">
+  var editor = new EpicEditor({basePath: 'public/epiceditor'}).load();
+</script>
