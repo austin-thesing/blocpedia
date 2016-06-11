@@ -2,13 +2,15 @@
   <h1>Editing Wiki</h1>
 </div>
 
-<%= render 'form' %>
-<br>
+<%= render 'form' %><br>
+<p>
+  <em><strong>Wiki Editors:</strong></em> Please leave a line at the bottom of the wiki with " *your username* -- reason for edits " if you decide to save your edits.
+</p>
 <div class="collaborator-btn">
   <% if @wiki.user == current_user || current_user.admin? %>
     <%= link_to "Manage collaborators", wiki_collaborators_path(@wiki), class: "btn btn-info btn-md" %>
   <% end %>
 </div>
-
+<br>
 <%= link_to 'Read', @wiki, class: 'btn btn-default btn-sm' %> |
 <%= link_to 'Back', wikis_path, class: 'btn btn-default btn-sm' %>

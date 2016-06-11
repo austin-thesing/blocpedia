@@ -38,21 +38,20 @@
   </div>
 
   <div class="wiki-buttons">
-    <div class="wiki-view">
-      <% if policy(wiki).show?  %>
-        <%#= link_to 'Read', wiki, class: 'btn btn-default' %>
-      <% end %>
-    </div>
+    <% if policy(wiki).show?  %>
+      <div class="wiki-view">
+        <%= link_to 'Read', wiki, class: 'btn btn-default btn-sm' %>
+      </div>
+    <% end %>
     <% if policy(wiki).edit? %>
       <div class="wiki-edit">
-        <%#= link_to 'Edit', edit_wiki_path(wiki), class: 'btn btn-default' %>
+        <%= link_to 'Edit', edit_wiki_path(wiki), class: 'btn btn-default btn-sm' %>
       </div>
     <% end %>
     <% if policy(wiki).destroy?  %>
-    <div class="wiki-delete">
-      <%#= link_to 'Delete', wiki, class: 'btn btn-default', method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
+      <div class="wiki-delete">
+        <%= link_to 'Delete', wiki, class: 'btn btn-default btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
     <% end %>
-
   </div>
 </div>

@@ -40,6 +40,8 @@ class WikisController < ApplicationController
   def update
     authorize @wiki
     if @wiki.update(wiki_params)
+      @wiki.slug = nil #to update the slug it must be emptied and set to nil
+      @wiki.save! # re-save the wiki so the new slug is generated
       redirect_to @wiki, notice: 'Wiki was successfully updated.'
     else
       render :edit

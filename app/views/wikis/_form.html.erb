@@ -17,7 +17,8 @@
   </div>
   <div class="form-group">
     <%= f.label :body %><br>
-    <%= f.text_area :body, class: 'form-control', rows: 10 %>
+    <%= f.text_area :body, class: 'form-control', rows: 10, columns: 20, style: "display:none;" %>
+    <div id="epiceditor"></div>
   </div>
 
   <% if current_user.admin? || current_user.premium? %>
@@ -31,5 +32,41 @@
   <div class="actions">
     <%= f.submit class: 'btn btn-success' %>
   </div>
+  <br>
 </div>
 <% end %>
+<script type="text/javascript">
+  var opts = {
+  container: 'epiceditor',
+  textarea: "wiki_body",
+  basePath: '../../epiceditor',
+  clientSideStorage: false,
+  localStorageName: 'epiceditor',
+  useNativeFullscreen: false,
+  parser: marked,
+  theme: {
+    base: '../../epiceditor/themes/base/epiceditor.css',
+    preview: '../../epiceditor/themes/preview/github.css',
+    editor: '../../epiceditor/themes/editor/epic-light.css'
+  },
+  button: {
+    preview: true,
+    fullscreen: true,
+    bar: "auto"
+  },
+  focusOnLoad: false,
+  shortcut: {
+    modifier: 18,
+    fullscreen: 70,
+    preview: 80
+  },
+  string: {
+    togglePreview: 'Toggle Preview Mode',
+    toggleEdit: 'Toggle Edit Mode',
+    toggleFullscreen: 'Enter Fullscreen'
+  },
+  autogrow: false
+}
+var editor = new EpicEditor(opts).load();
+// var editor = new EpicEditor({basePath: '../../epiceditor'}).load();
+</script>
