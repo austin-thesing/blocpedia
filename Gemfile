@@ -33,6 +33,8 @@ gem 'rollbar'
 gem 'oj', '~> 2.12.14'
 # For creating friendly/readable URL Slugs
 gem 'friendly_id', '~> 5.1.0', :require => 'friendly_id'
+# EpicEditor for Rails
+gem 'epiceditor', '~> 0.2.2'
 
 
 group :development, :test do

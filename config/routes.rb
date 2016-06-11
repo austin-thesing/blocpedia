@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+  mount EpicEditor::Engine => "/"
+  
   resources :charges, only: [:new, :create]
   get 'charges/downgrade' => 'charges#downgrade' # Downgrade Accounts Path
   resources :wikis do
