@@ -31,7 +31,6 @@ class ApplicationPolicy
   end
 
   def destroy?
-    update?
   end
 
   def scope

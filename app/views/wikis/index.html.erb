@@ -3,5 +3,5 @@
 </div>
 <%= link_to 'New Wiki', new_wiki_path, class: 'btn btn-success' %>
 
-<%# moved into a partial because it really cluttered the view %>
+<%# loops through all wikis and renders them out using the _wiki.html.erb as the formatting template for each wiki %>
 <%= render @wikis %>
