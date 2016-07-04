@@ -48,5 +48,15 @@
 <%= yield %>
 
   </div>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    // Tracks page views
+    blocmetrics.report('Page Loads');
+    // Tracks clicked links
+    $('a').click(function(){
+      blocmetrics.report('Links Clicked');
+    });
+  });
+  </script>
 </body>
 </html>
